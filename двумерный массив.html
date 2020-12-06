@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Array test</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Array test</h1>
+        <form name="form1">
+        <input type="text" id="text1" value="" placeholder="строки">
+        <input type="text" id="text2" value="" placeholder="столбцы">
+        <input type="button" id="btn1" value="Составить массив">
+        <input type="button" id="btn2" value="Получить элемент [5][7]">
+        </form>
+        <script>
+            var n;//строки
+            var m;//столбцы
+            var form = document.forms.form1;
+            var row = form1.text1;
+            var col = form1.text2;
+           
+            var table=[];
+            function createArray(){
+                n = parseInt(row.value);//введенные строки преобразуем в числа
+                m = parseInt(col.value);
+                for(let i=0; i<n;i++){
+                    table[i]=[];
+                    for(let j=0; j<m; j++){
+                        table[i][j]=i*j;
+                    }
+                }
+                
+            }
+            document.getElementById("btn1").onclick = createArray;
+            document.getElementById("btn2").onclick = function(){alert(table[5][7])}
+        </script>
+    </body>
+</html>
